@@ -135,9 +135,8 @@ ChangesStream.prototype.request = function () {
   opts.method = (this.filterIds || this.use_post) ? 'POST' : 'GET';
   opts.timeout = this.requestTimeout;
   opts.rejectUnauthorized = this.rejectUnauthorized;
-  opts.headers = {
-    'accept': 'application/json'
-  };
+  opts.headers = opts.headers || {};
+  opts.headers['accept'] = 'application/json';
   opts.agent = this.agent;
 
   //
